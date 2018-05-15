@@ -2,8 +2,37 @@ import React from 'react'
 import ColorPicker from './ColorPicker.jsx'
 
 export default class SelectedElement extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      toastShown: false
+    }
+  }
   setAlarm(element){
-    console.log(element);
+    let startTime = this.getTimeFromMinute(element.start);
+    console.log(startTime);
+    cordova.plugins.notification.local.schedule({
+      title: 'My first notification',
+      text: 'Thats pretty easy...',
+      foreground: true
+    });
+    cordova.plugins.notification.local.schedule({
+      title: 'Time to go sleep',
+      text: 'Sleep well',
+      trigger: { every: { hour: startTime.hour, minute: startTime.minute}}
+    });
+    cordova.plugins.notification.local.schedule({
+      title: 'Time to go sleep',
+      text: '3:00 - 4:00 PM',
+      trigger: { every: { hour: 6, minute: 45}}
+    });
+  }
+
+  getTimeFromMinute = (minute) => {
+    return {
+      hour: Math.floor(minute / 60),
+      minute: minute % 60
+    }
   }
   render() {
     var napchart = this.props.napchart
