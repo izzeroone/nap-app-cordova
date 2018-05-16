@@ -9,8 +9,10 @@ export default class SelectedElement extends React.Component {
     }
   }
   setAlarm(element){
-    let startTime = this.getTimeFromMinute(element.start);
-    console.log(startTime);
+    let sleepTime = this.getTimeFromMinute(element.start);
+    let wakeupTime = this.getTimeFromMinute(element.end);
+    console.log(sleepTime);
+    console.log(wakeupTime);
     cordova.plugins.notification.local.schedule({
       title: 'My first notification',
       text: 'Thats pretty easy...',
@@ -19,12 +21,20 @@ export default class SelectedElement extends React.Component {
     cordova.plugins.notification.local.schedule({
       title: 'Time to go sleep',
       text: 'Sleep well',
-      trigger: { every: { hour: startTime.hour, minute: startTime.minute}}
+      trigger: { every: { hour: sleepTime.hour, minute: sleepTime.minute}},
+      foreground: true
+    });
+    cordova.plugins.notification.local.schedule({
+      title: 'Time to wake up',
+      text: 'Wake up now!',
+      trigger: { every: { hour: wakeupTime.hour, minute: wakeupTime.minute}},
+      foreground: true
     });
     cordova.plugins.notification.local.schedule({
       title: 'Time to go sleep',
       text: '3:00 - 4:00 PM',
-      trigger: { every: { hour: 6, minute: 45}}
+      trigger: { every: { hour: 6, minute: 45}},
+      foreground: true
     });
   }
 
