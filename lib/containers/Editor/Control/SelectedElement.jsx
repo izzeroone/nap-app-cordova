@@ -11,31 +11,44 @@ export default class SelectedElement extends React.Component {
   setAlarm(element){
     let sleepTime = this.getTimeFromMinute(element.start);
     let wakeupTime = this.getTimeFromMinute(element.end);
-    console.log(sleepTime);
-    console.log(wakeupTime);
-    cordova.plugins.notification.local.schedule({
-      title: 'My first notification',
-      text: 'Thats pretty easy...',
+    
+    var now = new Date();
+    var now1late = new Date();
+    now1late.setMinutes(now1late.getMinutes() + 1);
+    var dateSleep = new Date();
+    var dateWake = new Date();
+    dateSleep.setHours(sleepTime.hour);
+    dateSleep.setMinutes(sleepTime.minute);
+    dateWake.setHours(wakeupTime.hour);
+    dateWake.setMinutes(wakeupTime.minute);
+    console.log(dateSleep);
+    console.log(dateWake);
+    console.log(now);
+    console.log(now1late);
+    cordova.plugins.notification.local.schedule([{
+      title: 'Alarm has been set',
+      text: 'Happy hacking',
+      firstAt: now,
       foreground: true
-    });
-    cordova.plugins.notification.local.schedule({
+    },{
+      title: 'Just make sure that you just set alarm',
+      text: '1 minute late',
+      firstAt: now1late,
+      foreground: true
+    },{
       title: 'Time to go sleep',
       text: 'Sleep well',
-      trigger: { every: { hour: sleepTime.hour, minute: sleepTime.minute}},
+      firstAt: dateSleep, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+      every: "day",
       foreground: true
-    });
-    cordova.plugins.notification.local.schedule({
+    },{
       title: 'Time to wake up',
       text: 'Wake up now!',
-      trigger: { every: { hour: wakeupTime.hour, minute: wakeupTime.minute}},
+      firstAt: dateWake, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+      every: "day",
       foreground: true
-    });
-    cordova.plugins.notification.local.schedule({
-      title: 'Time to go sleep',
-      text: '3:00 - 4:00 PM',
-      trigger: { every: { hour: 6, minute: 45}},
-      foreground: true
-    });
+    }]);
+  ;
   }
 
   getTimeFromMinute = (minute) => {
