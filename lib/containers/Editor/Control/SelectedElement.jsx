@@ -14,13 +14,11 @@ export default class SelectedElement extends React.Component {
     
     var now = new Date();
     var now1late = new Date();
-    now1late.setMinutes(now1late.getMinutes() + 1);
+    now1late.setMinutes(now1late.getMinutes() + 1, 0, 0);
     var dateSleep = new Date();
     var dateWake = new Date();
-    dateSleep.setHours(sleepTime.hour);
-    dateSleep.setMinutes(sleepTime.minute);
-    dateWake.setHours(wakeupTime.hour);
-    dateWake.setMinutes(wakeupTime.minute);
+    dateSleep.setHours(sleepTime.hour, sleepTime.minute, 0, 0);
+    dateWake.setHours(wakeupTime.hour, wakeupTime.minute, 0, 0);
     console.log(dateSleep);
     console.log(dateWake);
     console.log(now);
