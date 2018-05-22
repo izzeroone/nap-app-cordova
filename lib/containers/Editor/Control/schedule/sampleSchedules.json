@@ -17,8 +17,8 @@
         "end": 1065
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "Nap-only sleep schedule. It consists of four equidistant 30 minute naps (one nap every 6 hours) and NO cores, giving a total of 2 hours of sleep per day.",
+    "recommend": "NOT RECOMMEND"
   },
   {
     "name": "Dual Core 1",
@@ -35,8 +35,8 @@
         "end": 860
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The dual core family of sleep schedules was originally invented by the Polyphasic Society and is modelled around a similar concept to Segmented sleep. Instead of having a single long core, the core sleep is broken into two halves, with the first half being focused on SWS and the second half being focused on REM. A number of 20-minute naps are then added to round out the schedules and provide the remaining REM sleep needed.",
+    "recommend": "Everyone"
   },
   {
     "name": "Dual Core 2",
@@ -57,8 +57,8 @@
         "end": 980
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The dual core family of sleep schedules was originally invented by the Polyphasic Society and is modelled around a similar concept to Segmented sleep. Instead of having a single long core, the core sleep is broken into two halves, with the first half being focused on SWS and the second half being focused on REM. A number of 20-minute naps are then added to round out the schedules and provide the remaining REM sleep needed.",
+    "recommend": "Night worker"
   },
   {
     "name": "Dual Core 3",
@@ -83,8 +83,8 @@
         "end": 1020
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The dual core family of sleep schedules was originally invented by the Polyphasic Society and is modelled around a similar concept to Segmented sleep. Instead of having a single long core, the core sleep is broken into two halves, with the first half being focused on SWS and the second half being focused on REM. A number of 20-minute naps are then added to round out the schedules and provide the remaining REM sleep needed.",
+    "recommend": "Night worker"
   },
   {
     "name": "Dual Core 4",
@@ -113,8 +113,8 @@
         "end": 1100
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "This schedule is considered an Uberman transitional schedule",
+    "recommend": "NOT RECOMMEND"
   },
   {
     "name": "Dymaxion",
@@ -135,8 +135,8 @@
         "end": 1440
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The Dymaxion sleep schedule is probably the second most well-known nap-only sleep schedule. It consists of four equidistant 30 minute naps (one nap every 6 hours) and NO cores, giving a total of 2 hours of sleep per day.",
+    "recommend": "NOT RECOMMEND"
   },
   {
     "name": "Everyman 1",
@@ -149,8 +149,8 @@
         "end": 800
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The everyman family of sleep schedules was originally invented by Puredoxyk and consists of schedules containing a single core complimented with a number of 20-minute naps. Classic scheduling for Everyman takes a standard 5 cycle monophasic core, and then cycles are removed as naps are added. This results in the core cycles plus naps providing 5 cycles of equivalent rest in total. One nap",
+    "recommend": "Everyone"
   },
   {
     "name": "Everyman 2",
@@ -167,8 +167,8 @@
         "end": 890
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The everyman family of sleep schedules was originally invented by Puredoxyk and consists of schedules containing a single core complimented with a number of 20-minute naps. Classic scheduling for Everyman takes a standard 5 cycle monophasic core, and then cycles are removed as naps are added. This results in the core cycles plus naps providing 5 cycles of equivalent rest in total. Two nap",
+    "recommend": "Everyone"
   },
   {
     "name": "Everyman 3",
@@ -189,8 +189,8 @@
         "end": 900
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The everyman family of sleep schedules was originally invented by Puredoxyk and consists of schedules containing a single core complimented with a number of 20-minute naps. Classic scheduling for Everyman takes a standard 5 cycle monophasic core, and then cycles are removed as naps are added. This results in the core cycles plus naps providing 5 cycles of equivalent rest in total. Three nap",
+    "recommend": "Busy person like Doctor, student or worker with deadline"
   },
   {
     "name": "Everyman 4",
@@ -215,8 +215,8 @@
         "end": 1000
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The everyman family of sleep schedules was originally invented by Puredoxyk and consists of schedules containing a single core complimented with a number of 20-minute naps. Classic scheduling for Everyman takes a standard 5 cycle monophasic core, and then cycles are removed as naps are added. This results in the core cycles plus naps providing 5 cycles of equivalent rest in total. Three nap",
+    "recommend": "Busy person like Doctor, student or worker with deadline"
   },
   {
     "name": "Everyman 5",
@@ -245,62 +245,8 @@
         "end": 860
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
-  },
-  {
-    "name": "Naptation",
-    "elements": [{
-        "start": 0,
-        "end": 20
-      },
-      {
-        "start": 120,
-        "end": 140
-      },
-      {
-        "start": 240,
-        "end": 260
-      },
-      {
-        "start": 360,
-        "end": 380
-      },
-      {
-        "start": 480,
-        "end": 500
-      },
-      {
-        "start": 600,
-        "end": 620
-      },
-      {
-        "start": 720,
-        "end": 740
-      },
-      {
-        "start": 840,
-        "end": 860
-      },
-      {
-        "start": 960,
-        "end": 980
-      },
-      {
-        "start": 1080,
-        "end": 1100
-      },
-      {
-        "start": 1200,
-        "end": 1220
-      },
-      {
-        "start": 1320,
-        "end": 1340
-      }
-    ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "Considered an Uberman transitional schedule",
+    "recommend": "NOT RECOMMEND"
   },
   {
     "name": "SPAMAYL",
@@ -337,8 +283,8 @@
         "end": 980
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "SPAMAYL (Sleep Polyphasically As Much As You Like) is a fancy way of saying free-running sleep, or simply “take a 20 minute nap whenever you feel tired”.  The adaptation for this is almost identical to Uberman (except one can take more naps), but afterward the schedule is more flexible than traditional Uberman.",
+    "recommend": "Anyone who want to sleep less"
   },
   {
     "name": "Segmented",
@@ -351,8 +297,8 @@
         "end": 420
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "Segmented sleep is a sleep pattern in which your night sleep is divided into two separate chunks, with a period of wakefulness in between. Before advances in artificial lighting, segmented sleep was a normal sleep pattern for many people.",
+    "recommend": "Everyone"
   },
   {
     "name": "Siesta",
@@ -365,100 +311,8 @@
         "end": 870
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
-  },
-  {
-    "name": "Tesla",
-    "elements": [{
-        "start": 1060,
-        "end": 1080
-      },
-      {
-        "start": 700,
-        "end": 720
-      },
-      {
-        "start": 340,
-        "end": 360
-      },
-      {
-        "start": 1420,
-        "end": 1440
-      }
-    ],
-    "info": "avc",
-    "recommend": "shark"
-  },
-  {
-    "name": "Tri Core 1",
-    "elements": [{
-        "start": 1290,
-        "end": 1380
-      },
-      {
-        "start": 120,
-        "end": 210
-      },
-      {
-        "start": 390,
-        "end": 480
-      },
-      {
-        "start": 870,
-        "end": 890
-      }
-    ],
-    "info": "avc",
-    "recommend": "shark"
-  },
-  {
-    "name": "Tri Core 2",
-    "elements": [{
-        "start": 1380,
-        "end": 30
-      },
-      {
-        "start": 1020,
-        "end": 1110
-      },
-      {
-        "start": 300,
-        "end": 390
-      },
-      {
-        "start": 580,
-        "end": 600
-      },
-      {
-        "start": 800,
-        "end": 820
-      }
-    ],
-    "info": "avc",
-    "recommend": "shark"
-  },
-  {
-    "name": "Trimaxion",
-    "elements": [{
-        "start": 1350,
-        "end": 0
-      },
-      {
-        "start": 330,
-        "end": 360
-      },
-      {
-        "start": 720,
-        "end": 750
-      },
-      {
-        "start": 1040,
-        "end": 1070
-      }
-    ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "Siesta sleep schedules are the most common of the polyphasic schedules, involving sleeping in two separate segments throughout the day – once at night, and a nap in the middle of the day. ",
+    "recommend": "Just like our usual sleep schedule."
   },
   {
     "name": "Triphasic",
@@ -475,8 +329,8 @@
         "end": 960
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The triphasic schedule from Leif Weaver is an example of a schedule that matches your Circadian rhythm. Your exact sleep times will depend on the times of dawn and dusk, where you live, and possibly for social reasons. Weaver’s schedule is a good standard to follow. There does not have to be equidistant times between naps. However it is important to note that waking hours of less than 4 hours or more than 8 hours in between 90 minutes isn’t recommend and has a high chance of jeopardizing your ability to adapt.",
+    "recommend": "Wake along person"
   },
   {
     "name": "Uberman",
@@ -505,8 +359,8 @@
         "end": 260
       }
     ],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "The Uberman Sleep Schedule (coined by Puredoxyk, the first Uberman sleeper) is a sleep schedule consisting entirely of 20 minute naps, spaced equidistant throughout the day. In its traditional form Uberman is 6 equidistant naps throughout each day.",
+    "recommend": "NOT RECOMMEND"
   },
   {
     "name": "Monophasic",
@@ -514,7 +368,7 @@
       "start": 0,
       "end": 480
     }],
-    "info": "avc",
-    "recommend": "shark"
+    "info": "Eight hours of sleep at night, which is about one third of the average human life",
+    "recommend": "Everyone"
   }
 ]

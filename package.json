@@ -55,8 +55,10 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "cordova-android": "^6.2.3",
+    "cordova-ios": "^4.5.4",
     "cordova-plugin-app-event": "^1.2.1",
     "cordova-plugin-device": "git+https://github.com/apache/cordova-plugin-device.git",
+    "cordova-plugin-intent-action": "git+https://github.com/ngocdaothanh/cordova-plugin-intent-action.git",
     "cordova-plugin-local-notifications": "^1.0.0",
     "cordova-plugin-network-information": "git+https://github.com/apache/cordova-plugin-network-information.git",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -68,16 +70,20 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-onsenui": "^1.8.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "zerotwos.setalarm": "0.0.4"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
       "phonegap-plugin-mobile-accessibility": {},
-      "de.appplant.cordova.plugin.local-notification": {}
+      "de.appplant.cordova.plugin.local-notification": {},
+      "cordova-plugin-intent-action": {},
+      "zerotwos.setalarm": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

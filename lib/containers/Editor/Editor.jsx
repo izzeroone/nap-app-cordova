@@ -166,24 +166,15 @@ export default class Editor extends Component {
 
   setAlarm = () => {
     console.log(this.state.napchart.data.elements);
+      let sucess = () => {
+          console.log("sucess");
+      };
+      let fail = () => {
+          console.log("fall");
+      };
     this.state.napchart.data.elements.forEach(element => {
-      cordova.plugins.notification.local.schedule({
-        title: 'Time to go sleep',
-        text: 'Sleep well',
-        trigger: { every: { hour: Math.floor(element.start / 60), minute: element.start % 60}},
-        foreground: true
-      });
-      cordova.plugins.notification.local.schedule({
-        title: 'Time to wake up',
-        text: 'Wake up now!',
-        trigger: { every: { hour: Math.floor(element.end / 60), minute: element.end % 60}},
-        foreground: true
-      });
-    });
-    cordova.plugins.notification.local.schedule({
-      title: 'Set alarm sucessful',
-      text: 'Wake up on time',
-      foreground: true
+        cordova.exec(sucess, fail, 'setalarm', 'coolMethod', [Math.floor(element.end / 60), element.start % 60]);
+
   });
   }
 

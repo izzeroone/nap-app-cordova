@@ -11,41 +11,50 @@ export default class SelectedElement extends React.Component {
   setAlarm(element){
     let sleepTime = this.getTimeFromMinute(element.start);
     let wakeupTime = this.getTimeFromMinute(element.end);
-    
-    var now = new Date();
-    var now1late = new Date();
-    now1late.setMinutes(now1late.getMinutes() + 1, 0, 0);
-    var dateSleep = new Date();
-    var dateWake = new Date();
-    dateSleep.setHours(sleepTime.hour, sleepTime.minute, 0, 0);
-    dateWake.setHours(wakeupTime.hour, wakeupTime.minute, 0, 0);
-    console.log(dateSleep);
-    console.log(dateWake);
-    console.log(now);
-    console.log(now1late);
-    cordova.plugins.notification.local.schedule([{
-      title: 'Alarm has been set',
-      text: 'Happy hacking',
-      firstAt: now,
-      foreground: true
-    },{
-      title: 'Just make sure that you just set alarm',
-      text: '1 minute late',
-      firstAt: now1late,
-      foreground: true
-    },{
-      title: 'Time to go sleep',
-      text: 'Sleep well',
-      firstAt: dateSleep, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
-      every: "day",
-      foreground: true
-    },{
-      title: 'Time to wake up',
-      text: 'Wake up now!',
-      firstAt: dateWake, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
-      every: "day",
-      foreground: true
-    }]);
+    let sucess = () => {
+            console.log("sucess");
+        };
+        let fail = () => {
+                console.log("fall");
+            };
+        cordova.exec(sucess, fail, 'setalarm', 'coolMethod', [sleepTime.hour, sleepTime.minute]);
+      cordova.exec(sucess, fail, 'setalarm', 'coolMethod', [wakeupTime.hour, wakeupTime.minute]);
+
+    // intentActionPlugin.startIntentAction("android.intent.action.SHOW_ALARMS");
+    // var now = new Date();
+    // var now1late = new Date();
+    // now1late.setMinutes(now1late.getMinutes() + 1, 0, 0);
+    // var dateSleep = new Date();
+    // var dateWake = new Date();
+    // dateSleep.setHours(sleepTime.hour, sleepTime.minute, 0, 0);
+    // dateWake.setHours(wakeupTime.hour, wakeupTime.minute, 0, 0);
+    // console.log(dateSleep);
+    // console.log(dateWake);
+    // console.log(now);
+    // console.log(now1late);
+    // cordova.plugins.notification.local.schedule([{
+    //   title: 'Alarm has been set',
+    //   text: 'Happy hacking',
+    //   firstAt: now,
+    //   foreground: true
+    // },{
+    //   title: 'Just make sure that you just set alarm',
+    //   text: '1 minute late',
+    //   firstAt: now1late,
+    //   foreground: true
+    // },{
+    //   title: 'Time to go sleep',
+    //   text: 'Sleep well',
+    //   firstAt: dateSleep, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+    //   every: "day",
+    //   foreground: true
+    // },{
+    //   title: 'Time to wake up',
+    //   text: 'Wake up now!',
+    //   firstAt: dateWake, // firstAt and at properties must be an IETF-compliant RFC 2822 timestamp
+    //   every: "day",
+    //   foreground: true
+    // }]);
   ;
   }
 
