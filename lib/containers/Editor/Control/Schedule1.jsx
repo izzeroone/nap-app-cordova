@@ -51,6 +51,7 @@ export default class Schedule extends React.Component {
                     <span>{schedule.name}</span>
                   </div>
                 </div>
+                <p>  </p>
                 <div className="right">
                   <div className="level-item">
                     <span className="duration">{this.calculateDuration(schedule)}</span>

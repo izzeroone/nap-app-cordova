@@ -173,7 +173,8 @@ export default class Editor extends Component {
           console.log("fall");
       };
     this.state.napchart.data.elements.forEach(element => {
-        cordova.exec(sucess, fail, 'setalarm', 'coolMethod', [Math.floor(element.end / 60), element.start % 60]);
+        cordova.exec(sucess, fail, 'setalarm', 'coolMethod', [Math.floor(element.start / 60), element.start % 60]);
+        cordova.exec(sucess, fail, 'setalarm', 'coolMethod', [Math.floor(element.end / 60), element.end % 60]);
 
   });
   }
