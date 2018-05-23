@@ -55,6 +55,7 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "cordova-android": "^6.2.3",
+    "cordova-ios": "^4.5.4",
     "cordova-plugin-app-event": "^1.2.1",
     "cordova-plugin-device": "git+https://github.com/apache/cordova-plugin-device.git",
     "cordova-plugin-local-notifications": "^1.0.0",
@@ -77,7 +78,8 @@
       "de.appplant.cordova.plugin.local-notification": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
