@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import uuid from 'uuid'
 import Napchart from 'napchart'
+import * as ons from "onsenui";
 
 
 export default class Chart extends Component {
@@ -59,13 +60,17 @@ export default class Chart extends Component {
 
   initializeChart() {
     let storage = window.localStorage;
-    let schedule = JSON.parse(storage.getItem("schedule"));
-    console.log(schedule);
+    let chartData = JSON.parse(storage.getItem("chartData"));
+    if (chartData === null){
+        chartData = {};
+    } else {
+        ons.notification.toast("Load chart data successful", {timeout: 1000});
+    }
 
-    var canvas = this.refs[this.state.id]
-    var ctx = canvas.getContext('2d')
+    var canvas = this.refs[this.state.id];
+    var ctx = canvas.getContext('2d');
 
-    var napchart = Napchart.init(ctx, {}, {
+    var napchart = Napchart.init(ctx, chartData, {
         responsive: true,
         ampm: this.props.ampm
       })
@@ -81,12 +86,9 @@ export default class Chart extends Component {
         event.preventDefault()
         event.stopPropagation()
         return false
-      }
-      if(schedule != null){
-        napchart.data.elements = schedule;
-      }
+      };
 
-      this.props.setGlobalNapchart(napchart)
+      this.props.setGlobalNapchart(napchart);
 
   }
 }
