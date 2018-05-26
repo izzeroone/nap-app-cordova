@@ -66,29 +66,32 @@ export default class Chart extends Component {
     } else {
         ons.notification.toast("Load chart data successful", {timeout: 1000});
     }
-
-    var canvas = this.refs[this.state.id];
-    var ctx = canvas.getContext('2d');
-
-    var napchart = Napchart.init(ctx, chartData, {
-        responsive: true,
-        ampm: this.props.ampm
-      })
-
-      napchart.onUpdate = () => {
-        this.props.onUpdate()
-      }
-
-      // for debugging
-      window.napchart = napchart
-
-      canvas.oncontextmenu = function (event) {
-        event.preventDefault()
-        event.stopPropagation()
-        return false
-      };
-
-      this.props.setGlobalNapchart(napchart);
+    this.loadChartData(chartData)
 
   }
+
+    loadChartData = (chartData = {}) => {
+        var canvas = this.refs[this.state.id];
+        var ctx = canvas.getContext('2d');
+
+        var napchart = Napchart.init(ctx, chartData, {
+            responsive: true,
+            ampm: this.props.ampm
+        })
+
+        napchart.onUpdate = () => {
+            this.props.onUpdate()
+        }
+
+        // for debugging
+        window.napchart = napchart
+
+        canvas.oncontextmenu = function (event) {
+            event.preventDefault()
+            event.stopPropagation()
+            return false
+        };
+
+        this.props.setGlobalNapchart(napchart);
+    }
 }

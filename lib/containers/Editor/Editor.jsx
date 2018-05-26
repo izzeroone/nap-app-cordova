@@ -11,6 +11,7 @@ import Shapes from './Control/Shapes.jsx'
 import SuperLanes from './Control/SuperLanes.jsx'
 import Schedule from './Control/Schedule1.jsx'
 import ChartInfo from "./Control/ChartInfo.jsx";
+import axios from "axios/index";
 
 
 export default class Editor extends Component {
@@ -22,7 +23,8 @@ export default class Editor extends Component {
             ampm: this.getAmpm(),
             selectedControl: 0,
             toastShown: false,
-            chartid: window.chartid,
+            dialogShown: false,
+            chartId: window.chartid,
             title: window.title || '',
             description: window.description || '',
             menuShown: false
@@ -113,6 +115,111 @@ export default class Editor extends Component {
         })
     };
 
+    loadFromNapChart = (url) => {
+        ons.notification.prompt("Enter napchart url or id : ", {cancelable: true, title: "Load from napchart"}).then((response) => {
+            let chartId = "";
+            //Get the chart id from url
+            if(response.length === 5){
+                chartId = response;
+            } else {
+                chartId = response.slice(response.length - 5, response.length);
+            }
+            //Load data from data
+            axios.get(`http://napchart.com/api/get?chartid=${chartId}`, )
+                .then(response => {
+                    var data = {
+                        ...response.data,
+                        ...response.data.chartData,
+                    }
+                    delete data.chartData;
+                    if(data != {}){
+                        this.refs.chart.loadChartData(data);
+                        this.setState({
+                            chartId : chartId
+                        })
+                    } else {
+                        ons.notification.alert("Data is empty. Maybe wrong chartId or url");
+                    }
+
+                    ons.notification.toast("Load data from napchart successful", {timeout: 1000});
+                    console.log(data);
+                })
+                .catch(error => ons.notification.alert("Can't get data from napchart"))
+
+        })
+    }
+
+    saveDataToNapchart = () => {
+        var dataForDatabase = {
+            metaInfo: {
+                title : this.state.title,
+                description: this.state.description
+            },
+            chartData: {
+                ...this.state.napchart.data
+            }
+        }
+        console.log(dataForDatabase)
+        axios.post('http://napchart.com/api/create', {
+            data: JSON.stringify(dataForDatabase)
+        })
+            .then((response) => {
+                console.log(response)
+                var chartid = response.data.id
+
+                this.setState({
+                    chartId: chartid
+                });
+                this.openDialog();
+                ons.notification.toast('Save chart successful' ,{timeout: 1000}).then( response =>
+                    this.openDialog()
+                )
+            })
+            .catch((hm) => {
+                console.error('oh no!:', hm)
+                ons.notification.alert('Oh no!:. Something wrong!')
+            })
+    }
+
+    openDialog = () => {
+        this.setState({
+            dialogShown: true
+        });
+    }
+
+    hideDialog = () => {
+        this.setState({
+            dialogShown: false
+        });
+    }
+
+    renderNapchartUrlDialog = () => {
+        let napchartUrl =  `http://napchart.com/${this.state.chartId}`
+        return (
+            <Ons.Dialog
+            isOpen={this.state.dialogShown}
+            isCancelable={true}
+            onCancel={this.hideDialog}>
+            <div style={{textAlign: 'center', margin: '20px'}}>
+                <p style={{opacity: 0.5}}>Napchart url!</p>
+                <p>
+                    <Ons.Input
+                        underbar
+                        transparent
+                        value={napchartUrl}
+                        disabled={true}
+                    />
+                </p>
+            </div>
+        </Ons.Dialog>)
+    }
+
+    shareNapChartUrl = () => {
+        }
+
+
+
+
 
     render() {
         let controls = [
@@ -130,9 +237,9 @@ export default class Editor extends Component {
                 <Ons.SplitterSide side='right' width={220} collapse={true} swipeable={true} isOpen={this.state.menuShown} onClose={this.closeMenu} onOpen={this.showMenu}>
                     <Ons.Page>
                         <Ons.List>
-                            <Ons.ListItem tappable><Ons.Icon fixedWidth size="25" icon='md-cloud-download'></Ons.Icon>Load from napchart</Ons.ListItem>
-                            <Ons.ListItem tappable><Ons.Icon fixedWidth size="25" icon='md-floppy'></Ons.Icon>Save</Ons.ListItem>
-                            <Ons.ListItem tappable><Ons.Icon fixedWidth size="25" icon='md-cloud-upload'></Ons.Icon>Save to napchart</Ons.ListItem>
+                            <Ons.ListItem tappable onClick={this.loadFromNapChart}><Ons.Icon fixedWidth size="25" icon='md-cloud-download'></Ons.Icon>Load from napchart</Ons.ListItem>
+                            <Ons.ListItem tappable onClick={this.saveSchedule}><Ons.Icon fixedWidth size="25" icon='md-floppy'></Ons.Icon>Save</Ons.ListItem>
+                            <Ons.ListItem tappable onClick={this.saveDataToNapchart}><Ons.Icon fixedWidth size="25" icon='md-cloud-upload'></Ons.Icon>Save to napchart</Ons.ListItem>
                             <Ons.ListItem tappable><Ons.Icon fixedWidth size="25" icon='md-share'></Ons.Icon>Share</Ons.ListItem>
                             <Ons.ListItem tappable><Ons.Icon fixedWidth size="25" icon='md-spinner'></Ons.Icon>Clear</Ons.ListItem>
                             <Ons.ListItem tappable><Ons.Icon fixedWidth size="25" icon='md-settings'></Ons.Icon>Setting</Ons.ListItem>
@@ -144,6 +251,7 @@ export default class Editor extends Component {
                     <Ons.Page
                         renderToolbar={this.renderToolbar}
                         renderBottomToolbar={this.renderBottomToolbar}>
+                        {this.renderNapchartUrlDialog()}
                         <Chart
                             ref="chart"
                             napchart={this.state.napchart}
